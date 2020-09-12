@@ -1,10 +1,12 @@
 const Express = require("express");
+const setupRouter = require("./setup/router");
 const setupMiddleare = require("./setup/middleware");
 const setupDatabase = require("./setup/database");
 
 const app = Express();
 
 setupMiddleare(app);
+setupRouter(app);
 
 setupDatabase()
   .then((client) => {
